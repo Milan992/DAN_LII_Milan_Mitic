@@ -34,8 +34,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -54,6 +63,38 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\CakeDataBaseModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CakeDataBaseModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CakeDataBaseModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CakeDataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CakeDataBaseModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CakeDataBaseModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblAccount.cs">
+      <DependentUpon>CakeDataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblCake.cs">
+      <DependentUpon>CakeDataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblCakeType.cs">
+      <DependentUpon>CakeDataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblOrder.cs">
+      <DependentUpon>CakeDataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tblRecord.cs">
+      <DependentUpon>CakeDataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RelayCommand.cs" />
+    <Compile Include="Service.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -85,6 +126,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="Model\CakeDataBaseModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CakeDataBaseModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\CakeDataBaseModel.edmx.diagram">
+      <DependentUpon>CakeDataBaseModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -92,6 +141,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\CakeDataBaseModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CakeDataBaseModel.Context.cs</LastGenOutput>
+      <DependentUpon>CakeDataBaseModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model\CakeDataBaseModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CakeDataBaseModel.edmx</DependentUpon>
+      <LastGenOutput>CakeDataBaseModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
